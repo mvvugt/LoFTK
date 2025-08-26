@@ -67,7 +67,7 @@ sub parse_dyad_lofs_line {
   my $gene_symbol = shift @fields;
   my $single_f    = shift @fields; #An existing, precomputed single-copy LoF frequncy which will not be used - frequencies will be recomputed after merging.
   my $double_f    = shift @fields; #The same, but a two-copy LoF frequency.
-  my $key         = join "\t" , ( $snp_ID , $gene_ID ); #Key is the snp ID and gene_ID
+  my $key         = join "\t" , ( $snp_ID, $allele, $conseq, $gene_ID, $gene_symbol ); #Key is the snp ID and gene_ID
   my $value       = { single_copy_lof_count => array_count( \@fields , 1 ) ,
 		      two_copy_lof_count    => array_count( \@fields , 2 ) ,
 		      total_samples         => scalar @fields              ,
