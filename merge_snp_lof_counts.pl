@@ -66,10 +66,10 @@ sub parse_snp_lofs_line {
   my $hom_carriers = shift @fields; # Skip - will be recomputed
   
   my $key = join "\t" , ( $snp_id , $allele , $consequence , $gene_id , $gene_symbol );
-  my $value = { heterozygous_lof_carriers => array_count( \@fields , 1 ) ,
-                homozygous_lof_carriers   => array_count( \@fields , 2 ) ,
-                total_samples             => scalar @fields              ,
-                genotypes                 => join "\t" , @fields         ,
+  my $value = { heterozygous_lof_count => array_count( \@fields , 1 ) ,
+                homozygous_lof_count   => array_count( \@fields , 2 ) ,
+                total_samples          => scalar @fields              ,
+                genotypes              => join "\t" , @fields         ,
               };
   return ( $key , $value );
 }
